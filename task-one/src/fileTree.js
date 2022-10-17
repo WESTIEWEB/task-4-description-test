@@ -62,4 +62,4 @@ class FileTree {
   }
 }
 
-export default FileTree;
+export default FileTreeNode;

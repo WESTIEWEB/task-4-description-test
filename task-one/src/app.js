@@ -1,11 +1,13 @@
-import FileTree from './fileTree';
+import FileTree from './model';
 
 export function createFileTree(input) {
   const fileTree = new FileTree();
 
   for (const inputNode of input) {
     const parentNode = inputNode.parentId
-      ? fileTree.findNodeById(inputNode.parentId)
+      ? fileTree.findNodeById(inputNode.parentId) === null
+      ?fileTree.createParentTree(inputNode)
+      :fileTree.findNodeById(inputNode.parentId)
       : null;
 
     fileTree.createNode(
